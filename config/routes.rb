@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # You can have the root of your site routed with "root"
-  get 'author/new'
-  get 'new_author' => 'author#new'
-  root 'home#index'
 
+  get 'authors/new'
+
+  resources :authors
+
+  root 'home#index'
   
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
