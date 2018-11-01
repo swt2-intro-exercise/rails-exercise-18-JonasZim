@@ -1,9 +1,11 @@
-describe "an author object", type: :model do
+require 'rails_helper'
 
-    it "should have a name and a homepage" do
-        author = Author.new('Alan', 'Turing', 'http://wikipedia.org/Alan_Turing')
+RSpec.describe Author, type: :model do
+  it "should do sth" do
+    author = Author.new('first_name' => 'Alan', 'last_name'=>'Turing', 'homepage'=>'http://wikipedia.org/Alan_Turing')
 
-        expect(author.name).to eq('Alan Turing')
-        expect(author.homepage).to eq('http://wikipedia.org/Alan_Turing')
-    end
+    expect(author.name).to eq('Alan Turing')
+    expect(author.homepage).to eq('http://wikipedia.org/Alan_Turing')
+  end
+
 end
