@@ -22,4 +22,10 @@ describe "New author page", type: :feature do
     page.fill_in('author[homepage]', with: 'http://wikipedia.org/Alan_Turing')
     find('input[type="submit"]').click
   end
+
+  it "should have a valid name" do
+    author = Author.new('first_name' => 'Alan', 'last_name' => '', 'homepage' => 'example.com')
+
+    expect(author).to_not be_valid
+  end
 end
