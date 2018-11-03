@@ -1,0 +1,20 @@
+<h1>Listing authors</h1>
+
+<table>
+    <tr>
+        <th>First_name</th>
+        <th>Last_name</th>
+        <th>Homepage</th>
+        <th></th>
+    </tr>
+
+    <% @authors.each do |author| %>
+        <tr>
+            <td><%= author.name %></td>
+            <td><%= link_to "#{author.homepage}", "#{author.id}" %></td>
+        </tr>
+    <% end %>
+
+</table>
+
+<%= link_to 'New', new_author_path %>

@@ -6,4 +6,10 @@ describe 'authors page', type: :feature do
         visit '/authors'
     end
 
+    it 'should have a table with the authors name' do
+        visit '/authors'
+
+        expect(page).to have_selector('table tr')
+        expect(page).to have_link 'New', href: new_author_path
+    end
 end
