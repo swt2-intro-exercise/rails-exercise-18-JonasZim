@@ -28,4 +28,14 @@ describe "New author page", type: :feature do
 
     expect(author).to_not be_valid
   end
+
+  it "should throw errors if the entry is not valid" do
+    visit new_author_path
+    page.fill_in('author[first_name]', with: 'Alan')
+    page.fill_in('author[last_name]', with: 'Turing')
+    page.fill_in('author[homepage]', with: 'http://wikipedia.org/Alan_Turing')
+    find('input[type="submit"]').click
+
+    #i dont know how i get the infos i would like to get like the author_params
+  end
 end
