@@ -12,4 +12,7 @@ describe 'authors page', type: :feature do
         expect(page).to have_selector('table tr')
         expect(page).to have_link 'New', href: new_author_path
     end
+
+    it 'should have an delete button which deletes the chosen author' do
+    end
 end
