@@ -1,9 +1,15 @@
 class PapersController < ApplicationController
   before_action :set_paper, only: [:show, :edit, :update, :destroy]
 
+  scope :published_at, ->(year) { where("year = ?", year) }
+
   # GET /papers
   def index
-    @papers = Paper.all
+    if params.has_key? :year
+      @papers = Paper.published_at params[:year]
+    else    
+      @papers = Paper.all
+    end
   end
 
   # GET /papers/1
